@@ -1,0 +1,235 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    background-color: #ffd700; /* Kuning sesuai mockup */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    border: 1px solid #333;
+}
+
+/* Hero Section */
+.hero {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    background-color: #f9f9f9;
+    text-align: left; /* Text aligns left within container */
+    position: relative;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd; /* Mockup banner placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+/* Headquarters Section */
+.headquarters {
+    padding: 40px 0;
+    text-align: left;
+}
+
+.hq-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.hq-grid {
+    display: flex;
+    justify-content: space-around; /* Jarak antar lingkaran */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hq-item {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.hq-circle {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    background-color: #fff;
+}
+
+/* Message Us Section */
+.message-us {
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+}
+
+.form-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Kolom Kiri: Form */
+.form-left {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    width: 120px; /* Lebar label tetap agar sejajar */
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #d0d0d0;
+}
+
+/* Kolom Kanan: Result */
+.form-right {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+    min-height: 200px;
+    background-color: #fff;
+}
+
+.result-line {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+footer {
+    text-align: right;
+    padding: 20px 5%;
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+    
+    .hq-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-group label {
+        margin-bottom: 5px;
+    }
+    
+    .form-group input, .form-group textarea {
+        width: 100%;
+    }
+}
