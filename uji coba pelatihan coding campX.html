@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile</title>
+    <style>
+        /* --- CSS (Simpan ini di folder css/style.css nanti) --- */
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #fff;
+            border-bottom: 2px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background-color: #ffd700; /* Kuning sesuai mockup */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            border: 1px solid #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            background-color: #f9f9f9;
+            text-align: left; /* Text aligns left within container */
+            position: relative;
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .banner-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd; /* Mockup banner placeholder */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        /* Headquarters Section */
+        .headquarters {
+            padding: 40px 0;
+            text-align: left;
+        }
+
+        .hq-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .hq-grid {
+            display: flex;
+            justify-content: space-around; /* Jarak antar lingkaran */
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hq-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .hq-circle {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            background-color: #fff;
+        }
+
+        /* Message Us Section */
+        .message-us {
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .form-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        /* Kolom Kiri: Form */
+        .form-left {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group label {
+            width: 120px; /* Lebar label tetap agar sejajar */
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group textarea {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #d0d0d0;
+        }
+
+        /* Kolom Kanan: Result */
+        .form-right {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 4px;
+            min-height: 200px;
+            background-color: #fff;
+        }
+
+        .result-line {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: right;
+            padding: 20px 5%;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Design (Mobile) */
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+            }
+            
+            .hq-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .form-group label {
+                margin-bottom: 5px;
+            }
+            
+            .form-group input, .form-group textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <div class="logo-img">M</div>
+            <span>My Website</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#profile">Our Profile</a>
+            <a href="#">Portfolio</a>
+            <a href="#message-us">Message Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content container">
+            <h1 id="welcome-text">Hi <span id="user-name">User</span>, Welcome To Website</h1>
+            <p>Ini adalah website latihan pertama</p>
+            <div class="banner-placeholder">
+                1980x378
+            </div>
+        </div>
+    </section>
+
+    <!-- Headquarters Section -->
+    <section class="headquarters container" id="profile">
+        <h2 class="hq-title">Our Headquarter</h2>
+        <div class="hq-grid">
+            <div class="hq-item">
+                <div class="hq-circle"></div>
+                <p>Jakarta</p>
+            </div>
+            <div class="hq-item">
+                <div class="hq-circle"></div>
+                <p>Bandung</p>
+            </div>
+            <div class="hq-item">
+                <div class="hq-circle"></div>
+                <p>Surabaya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Us Section -->
+    <section class="message-us container" id="message-us">
+        <h2 class="hq-title">Message Us</h2>
+        
+        <div class="form-container">
+            <!-- Form Input -->
+            <form class="form-left" name="messageForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" name="nama" placeholder="Nama" id="input-nama">
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Lahir</label>
+                    <input type="date" name="tanggal" id="input-tanggal">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <div class="radio-group">
+                        <label style="width: auto; font-weight: normal;"><input type="radio" name="gender" value="Laki-Laki"> Laki-Laki</label>
+                        <label style="width: auto; font-weight: normal;"><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea name="pesan" rows="4" placeholder="Pesan" id="input-pesan"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+
+            <!-- Form Result Display -->
+            <div class="form-right" id="result-display">
+                <p>Result will appear here...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Created By Name
+    </footer>
+
+    <!-- Script (Simpan ini di folder js/script.js nanti) -->
+    <script>
+        // 1. Welcome Message Logic (Instruksi No. 4)
+        function replaceName() {
+            let name = prompt("Siapa nama anda?", "");
+            if (name) {
+                document.getElementById("user-name").innerText = name;
+            } else {
+                document.getElementById("user-name").innerText = "Guest";
+            }
+        }
+
+        // Panggil fungsi saat website di-load
+        window.onload = replaceName;
+
+        // 2. Form Validation & Display Logic (Instruksi No. 5)
+        function validateForm() {
+            // Ambil value dari form
+            const nama = document.forms["messageForm"]["nama"].value;
+            const tanggal = document.forms["messageForm"]["tanggal"].value;
+            const gender = document.forms["messageForm"]["gender"].value;
+            const pesan = document.forms["messageForm"]["pesan"].value;
+
+            // Validasi sederhana: Tidak boleh kosong
+            if (nama == "" || tanggal == "" || gender == "" || pesan == "") {
+                alert("Semua data wajib diisi!");
+                return false; // Mencegah submit
+            }
+
+            // Set Current Time
+            const now = new Date();
+            const timeString = now.toUTCString();
+
+            // Tampilkan ke div result (Manipulasi DOM)
+            const resultDiv = document.getElementById("result-display");
+            resultDiv.innerHTML = `
+                <div class="result-line"><strong>Current time :</strong> ${timeString}</div>
+                <br>
+                <div class="result-line"><strong>Nama :</strong> ${nama}</div>
+                <div class="result-line"><strong>Tanggal Lahir :</strong> ${tanggal}</div>
+                <div class="result-line"><strong>Jenis Kelamin :</strong> ${gender}</div>
+                <div class="result-line"><strong>Pesan :</strong> ${pesan}</div>
+            `;
+
+            return false; // Mencegah refresh halaman (karena tidak ada backend)
+        }
+    </script>
+</body>
+</html>
